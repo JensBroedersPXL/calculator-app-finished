@@ -1,10 +1,10 @@
 
-name: Dependencies Example
+name: Build Example
 
 on: [push]
 
 jobs:
-  dependencies-example:
+  build-example:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +19,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Verify directory contents
-        run: ls -alhR
+      - name: Bundle application
+        run: zip -r calculator-app.zip . -x ".git/*" ".github/*" "calculator-app.zip"
+
+      - name: Verify ZIP
+        run: ls -lh calculator-app.zip
