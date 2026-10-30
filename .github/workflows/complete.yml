@@ -24,3 +24,11 @@ jobs:
 
       - name: Run unit tests
         run: npm test -- --coverage
+
+      - name: Publish test report
+        if: always()
+        uses: dorny/test-reporter@v2
+        with:
+          name: Jest Test Results
+          path: junit.xml
+          reporter: jest-junit
