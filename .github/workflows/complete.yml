@@ -4,7 +4,7 @@ name: Build Example
 on: [push]
 
 jobs:
-  build-example:
+  complete-example:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +22,5 @@ jobs:
       - name: Bundle application
         run: zip -r calculator-app.zip . -x ".git/*" ".github/*" "calculator-app.zip"
 
-      - name: Verify ZIP
-        run: ls -lh calculator-app.zip
+      - name: Run unit tests
+        run: npm test -- --coverage
