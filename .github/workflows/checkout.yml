@@ -1,0 +1,15 @@
+
+name: Checkout Example
+
+on: [push]
+
+jobs:
+  checkout-example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Verify directory contents
+        run: ls -alhR
